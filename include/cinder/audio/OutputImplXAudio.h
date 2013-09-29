@@ -31,7 +31,12 @@
 #include <windows.h>
 #undef min
 #undef max
+#if (_WIN32_WINNT >= 0x0602 /*_WIN32_WINNT_WIN8*/)
 #include <xaudio2.h>
+#pragma comment(lib,"xaudio2.lib")
+#else
+#include <c:\program files (x86)\microsoft directx sdk (june 2010)\Include\xaudio2.h>
+#endif
 
 namespace cinder { namespace audio {
 

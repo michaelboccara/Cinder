@@ -246,6 +246,8 @@ void EarthquakeApp::parseEarthquakes( const string &url )
 	for( XmlTree::ConstIter itemIter = xml.begin( "feed/entry" ); itemIter != xml.end(); ++itemIter ) {
 		string titleLine( itemIter->getChild( "title" ).getValue() );
 		size_t firstComma = titleLine.find( ',' );
+		if(titleLine == "Data Feed Deprecated")
+			continue;
 		float magnitude = fromString<float>( titleLine.substr( titleLine.find( ' ' ) + 1, firstComma - 2 ) );
 		string title = titleLine.substr( firstComma + 2 );
 
