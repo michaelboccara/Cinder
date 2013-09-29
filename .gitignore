@@ -44,3 +44,5 @@ project.properties
 proguard.cfg
 proguard-project.txt
 
+
+/lib
